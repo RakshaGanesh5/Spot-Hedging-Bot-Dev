@@ -22,7 +22,7 @@ from telegram.request import HTTPXRequest
 monitor_tasks = {}
 #user_auto_hedge_jobs = {}
 
-TOKEN = "8020048931:AAH4ydVONLA9NAVeWFTl0NBXP0f4mcE5UNg"
+TOKEN = "---"
 
 # /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
