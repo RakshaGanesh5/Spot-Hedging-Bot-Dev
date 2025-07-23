@@ -1,0 +1,30 @@
+[
+  {
+    "time": "2025-07-11T09:57:15.108167",
+    "asset": "ETH/USDT",
+    "size": 1.2,
+    "price": 3015.29,
+    "reason": "manual_hedge"
+  },
+  {
+    "time": "2025-07-11T10:29:32.268908",
+    "asset": "ETH/USDT",
+    "size": 2.0,
+    "price": 3011.16,
+    "reason": "auto_hedge"
+  },
+  {
+    "time": "2025-07-11T10:30:03.312435",
+    "asset": "ETH/USDT",
+    "size": 2.0,
+    "price": 3010.99,
+    "reason": "auto_hedge"
+  },
+  {
+    "time": "2025-07-11T10:30:34.407452",
+    "asset": "ETH/USDT",
+    "size": 2.0,
+    "price": 3010.79,
+    "reason": "auto_hedge"
+  }
+]
