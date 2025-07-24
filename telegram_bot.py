@@ -147,15 +147,6 @@ async def hedge_history(update: Update, context: ContextTypes.DEFAULT_TYPE):
    
 
 
-async def set_threshold(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = update.effective_user.id
-    try:
-        new_threshold = float(context.args[0])
-        set_user_threshold(user_id, new_threshold)
-        await update.message.reply_text(f"✅ Threshold set to {new_threshold}")
-    except (IndexError, ValueError):
-        await update.message.reply_text("⚠️ Usage: /set_threshold <value>\nExample: /set_threshold 1.5")
-
 
 
                     
@@ -267,14 +258,6 @@ async def portfolio_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-async def reset_portfolio(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = update.effective_user.id
-    conn = sqlite3.connect(DB)
-    cursor = conn.cursor()
-    cursor.execute("DELETE FROM positions WHERE user_id = ?", (user_id,))
-    conn.commit()
-    conn.close()
-    await update.message.reply_text("🧹 Your portfolio has been reset.")
 
 
 async def restore_auto_hedge_jobs(app):
@@ -350,20 +333,6 @@ request = HTTPXRequest(
     pool_timeout=20
 )
 
-app = ApplicationBuilder().token(TOKEN).request(request).build()
-
-app.add_handler(CommandHandler("start", start))
-app.add_handler(CommandHandler("monitor", monitor))
-app.add_handler(CallbackQueryHandler(button_handler))
-app.add_handler(CommandHandler("hedge_history", hedge_history))
-app.add_handler(CommandHandler("set_threshold", set_threshold))
-app.add_handler(CommandHandler("auto_hedge", auto_hedge))
-app.add_handler(CommandHandler("stop_hedge", stop_hedge))
-app.add_handler(CommandHandler("risk_summary", risk_summary))
-app.add_handler(CommandHandler("portfolio_status", portfolio_status))
-app.add_handler(CommandHandler("add_position", add_position)) # type: ignore
-app.add_handler(CommandHandler("reset_portfolio", reset_portfolio))
-app.add_handler(CommandHandler("active_hedges", active_hedges))
 
 
 
