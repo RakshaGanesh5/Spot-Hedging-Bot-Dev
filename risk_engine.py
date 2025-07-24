@@ -1,8 +1,4 @@
-import numpy as np
 
-# 1. Delta = position size * beta (assume beta = 1 if 100% correlated)
-def calculate_delta(position_size, beta=1):
-    return position_size * beta
 
 # 2. Value at Risk (VaR) at a 95% confidence level
 def calculate_var(price_history, confidence=0.95):
